@@ -5,6 +5,7 @@ import org.usfirst.frc.team1339.robot.commands.DriveWithJoystick;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -42,11 +43,38 @@ public class PIDChassis extends PIDSubsystem {
     	setLeftRight(leftValue, rightValue);
     }
     
+    public void arcadeDrive(double throttle, double turn){
+    	
+    }	
+    
     private void setLeftRight(double leftSpeed, double rightSpeed){
     	leftFront.set(leftSpeed);
     	leftBack.set(leftSpeed);
     	rightFront.set(rightSpeed);
     	rightBack.set(rightSpeed);
+    	
+    	/*SmartDashboard.putNumber("Front Left Talon Temp", CommandBase.PIDChassis.getTalonTemp(0));
+		SmartDashboard.putNumber("Back Left Talon Temp", CommandBase.PIDChassis.getTalonTemp(1));
+		SmartDashboard.putNumber("Front Right Talon Temp", CommandBase.PIDChassis.getTalonTemp(2));
+		SmartDashboard.putNumber("Back Right Talon Temp", CommandBase.PIDChassis.getTalonTemp(3));
+		*/
+    }
+    
+    public double getTalonTemp(int num){
+    	double temp = 0;
+    	if(num == 0){
+    		temp = leftFront.getTemp();
+    	}
+    	else if(num == 1){
+    		temp = leftBack.getTemp();
+    	}
+    	else if(num == 2){
+    		temp = rightFront.getTemp();
+    	}
+    	else if(num == 3){
+    		temp = rightBack.getTemp();
+    	}
+		return temp;
     }
     
     protected double returnPIDInput() {

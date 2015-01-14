@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,7 +28,9 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	System.out.println("robotInit()\n");
 		oi = new OI();
-		CommandBase.init(); // initialize commands and the OI (created by Netbeans)
+		CommandBase.init();
+		SmartDashboard.putNumber("ABC", 23);
+		// initialize commands and the OI (created by Netbeans)
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
     }
@@ -48,13 +51,18 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
     }
 
-    public void teleopInit() {
+	public void teleopInit() {
 		// This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
     	System.out.println("teleopInit()\n");
         if (autonomousCommand != null) autonomousCommand.cancel();
+        
+        //SmartDashboard.putNumber("Front Left Talon Temp", CommandBase.PIDChassis.getTalonTemp(0));
+		//SmartDashboard.putNumber("Back Left Talon Temp", CommandBase.PIDChassis.getTalonTemp(1));
+		//SmartDashboard.putNumber("Front Right Talon Temp", CommandBase.PIDChassis.getTalonTemp(2));
+		//SmartDashboard.putNumber("Back Right Talon Temp", CommandBase.PIDChassis.getTalonTemp(3));
     }
 
     /**
