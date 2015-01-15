@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team1339.robot.OI;
-import org.usfirst.frc.team1339.robot.subsystems.PIDChassis;
+import org.usfirst.frc.team1339.robot.subsystems.*;
 
 
 /**
@@ -24,6 +24,7 @@ public abstract class CommandBase extends Command {
     // meaning that you could not need to use the " = new" syntax to use the member
     //public static Chassis chassis = new Chassis();
     public static PIDChassis PIDChassis = new PIDChassis();
+    public static PIDElevator PIDElevator = new PIDElevator();
     
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

@@ -1,3 +1,5 @@
+//ok google now start robot
+//siri start robot program
 package org.usfirst.frc.team1339.robot.subsystems;
 
 import org.usfirst.frc.team1339.robot.RobotMap;
@@ -25,11 +27,12 @@ public class PIDChassis extends PIDSubsystem {
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         // enable() - Enables the PID controller.
+       
         
-        leftFront = new CANTalon(RobotMap.leftFrontSRX);
-        leftBack = new CANTalon(RobotMap.leftBackSRX);
-        rightFront = new CANTalon(RobotMap.rightFrontSRX);
-        rightBack = new CANTalon(RobotMap.rightBackSRX);
+        leftFront = new CANTalon(RobotMap.LEFT_FRONT_SRX);
+        leftBack = new CANTalon(RobotMap.LEFT_BACK_SRX);
+        rightFront = new CANTalon(RobotMap.RIGHT_FRONT_SRX);
+        rightBack = new CANTalon(RobotMap.RIGHT_BACK_SRX);
 
     }
     
@@ -40,24 +43,30 @@ public class PIDChassis extends PIDSubsystem {
     }
     
     public void driveWithJoystick(double leftValue, double rightValue) {
-    	setLeftRight(leftValue, rightValue);
+    	arcadeDrive(leftValue, rightValue);
     }
     
     public void arcadeDrive(double throttle, double turn){
+    	double left = 0;
+    	double right = 0;
     	
+    	if(throttle > 0){
+    		left = throttle + turn;
+    		right = throttle - turn;
+    	}
+    	else if(throttle < 0){
+    		left = throttle - turn;
+    		right = throttle + turn;
+    	}
+
+    	setLeftRight(left, right);
     }	
     
     private void setLeftRight(double leftSpeed, double rightSpeed){
     	leftFront.set(leftSpeed);
-    	leftBack.set(leftSpeed);
+    	leftBack.set(leftSpeed * -1);
     	rightFront.set(rightSpeed);
-    	rightBack.set(rightSpeed);
-    	
-    	/*SmartDashboard.putNumber("Front Left Talon Temp", CommandBase.PIDChassis.getTalonTemp(0));
-		SmartDashboard.putNumber("Back Left Talon Temp", CommandBase.PIDChassis.getTalonTemp(1));
-		SmartDashboard.putNumber("Front Right Talon Temp", CommandBase.PIDChassis.getTalonTemp(2));
-		SmartDashboard.putNumber("Back Right Talon Temp", CommandBase.PIDChassis.getTalonTemp(3));
-		*/
+    	rightBack.set(rightSpeed * -1);
     }
     
     public double getTalonTemp(int num){

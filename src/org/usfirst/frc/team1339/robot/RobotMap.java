@@ -22,7 +22,6 @@ public class RobotMap {
 	public static int BUTTON_X = 2;
 	public static int BUTTON_Y = 3;
 	
-	public static int Talon_1 = 1;
 	//1 is left stick x-axis, 2 is left stick y-axis
     //3 is right stick x-axis, 4 is right stick y-axis
 	public static int LEFT_X_AXIS = 0;
@@ -31,9 +30,12 @@ public class RobotMap {
 	public static int RIGHT_Y_AXIS = 5;
 
 	//CAN ID's
-	public static int leftFrontSRX = 0;
-	public static int leftBackSRX = 1;
-	public static int rightFrontSRX = 2;
-	public static int rightBackSRX = 3;
-
+	public static int LEFT_FRONT_SRX = 0;
+	public static int LEFT_BACK_SRX = 1;
+	public static int RIGHT_FRONT_SRX = 2;
+	public static int RIGHT_BACK_SRX = 3;
+	public static int ELEV_TALON = 4;
+	
+	//Analog Ports
+	public static int POTENTIOMETER_PORT = 0;
 }

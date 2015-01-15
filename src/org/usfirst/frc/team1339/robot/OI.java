@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team1339.robot.RobotMap;
+import org.usfirst.frc.team1339.robot.commands.PrintPot;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -38,7 +39,6 @@ public class OI{
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
     private Joystick stick = new Joystick(RobotMap.JOYSTICK_PORT);
-    @SuppressWarnings("unused")
 	private JoystickButton buttonA = new JoystickButton(stick, RobotMap.BUTTON_A);
     @SuppressWarnings("unused")
 	private JoystickButton buttonB = new JoystickButton(stick, RobotMap.BUTTON_B);
@@ -46,6 +46,10 @@ public class OI{
 	private JoystickButton buttonX = new JoystickButton(stick, RobotMap.BUTTON_X);
     @SuppressWarnings("unused")
 	private JoystickButton buttonY = new JoystickButton(stick, RobotMap.BUTTON_Y);
+    
+    public OI(){
+    	buttonA.whenPressed(new PrintPot());
+    }
 	
 	
     public Joystick getJoystick() {
