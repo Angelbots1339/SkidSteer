@@ -2,20 +2,25 @@ package org.usfirst.frc.team1339.robot.subsystems;
 
 import org.usfirst.frc.team1339.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
+import org.usfirst.frc.team1339.robot.RobotMap;
 /**
  *
  */
 public class PIDElevator extends PIDSubsystem {
 	
-	private static final double Kp = 1.0;
+    
+	private static final double Kp = 0.0;
     private static final double Ki = 0.0;
     private static final double Kd = 0.0;
-	
+    
 	CANTalon elevMotor;
+	AnalogInput ai;
 	static AnalogPotentiometer pot;
 
     // Initialize your subsystem here
@@ -27,8 +32,11 @@ public class PIDElevator extends PIDSubsystem {
         //                  to
         // enable() - Enables the PID controller.
     	elevMotor = new CANTalon(RobotMap.ELEV_TALON);
-    	pot = new AnalogPotentiometer(RobotMap.POTENTIOMETER_PORT, 1, 4);
+    	ai = new AnalogInput(RobotMap.POTENTIOMETER_PORT);
+    	pot = new AnalogPotentiometer(ai, 3600);
+        stick = new Joystick; 
     }
+     
     
     public void elevatorSet(double setpoint){
     	setSetpoint(setpoint);
@@ -43,6 +51,14 @@ public class PIDElevator extends PIDSubsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
+    public void driveWithJoystick(double leftValue, double rightValue) {
+    	
+    }
+    
+    public void winchDrive(double speed){
+    		
+		elevMotor.set(stick.getRawAxis(RobotMap.LEFT_Y_AXIS));
+    }	
     protected double returnPIDInput() {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:

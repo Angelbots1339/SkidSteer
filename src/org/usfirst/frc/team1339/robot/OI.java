@@ -38,7 +38,7 @@ public class OI{
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
-    private Joystick stick = new Joystick(RobotMap.JOYSTICK_PORT);
+    public Joystick stick = new Joystick(RobotMap.JOYSTICK_PORT);
 	private JoystickButton buttonA = new JoystickButton(stick, RobotMap.BUTTON_A);
     @SuppressWarnings("unused")
 	private JoystickButton buttonB = new JoystickButton(stick, RobotMap.BUTTON_B);

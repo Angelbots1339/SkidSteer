@@ -1,4 +1,7 @@
 package org.usfirst.frc.team1339.robot;
+
+import edu.wpi.first.wpilibj.Joystick;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -17,10 +20,10 @@ public class RobotMap {
     // public static int rangefinderModule = 1;
 	
 	public static int JOYSTICK_PORT = 0;
-	public static int BUTTON_A = 0;
-	public static int BUTTON_B = 1;
-	public static int BUTTON_X = 2;
-	public static int BUTTON_Y = 3;
+	public static int BUTTON_A = 1;
+	public static int BUTTON_B = 2;
+	public static int BUTTON_X = 3;
+	public static int BUTTON_Y = 4;
 	
 	//1 is left stick x-axis, 2 is left stick y-axis
     //3 is right stick x-axis, 4 is right stick y-axis
@@ -28,7 +31,8 @@ public class RobotMap {
 	public static int LEFT_Y_AXIS = 1;
 	public static int RIGHT_X_AXIS = 4;
 	public static int RIGHT_Y_AXIS = 5;
-
+	
+	
 	//CAN ID's
 	public static int LEFT_FRONT_SRX = 0;
 	public static int LEFT_BACK_SRX = 1;
