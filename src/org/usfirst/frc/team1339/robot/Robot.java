@@ -32,7 +32,6 @@ public class Robot extends IterativeRobot {
     	System.out.println("robotInit()\n");
 		oi = new OI();
 		CommandBase.init();
-		SmartDashboard.putData("ExtendLeftPlow", new ExtendLeftPlow());
 		// initialize commands and the OI (created by Netbeans)
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();

@@ -7,6 +7,7 @@ import org.usfirst.frc.team1339.robot.commands.DriveWithJoystick;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -67,6 +68,9 @@ public class PIDChassis extends PIDSubsystem {
     	leftBack.set(leftSpeed * -1);
     	rightFront.set(rightSpeed);
     	rightBack.set(rightSpeed * -1);
+    	
+    	SmartDashboard.putNumber("Left Speed", leftSpeed);
+    	SmartDashboard.putNumber("Right Speed", rightSpeed);
     }
     
     public double getTalonTemp(int num){

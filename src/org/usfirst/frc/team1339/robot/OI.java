@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team1339.robot.RobotMap;
-import org.usfirst.frc.team1339.robot.commands.DriveWinch;
 import org.usfirst.frc.team1339.robot.commands.PrintPot;
 
 /**
@@ -42,7 +41,8 @@ public class OI{
     public Joystick stick = new Joystick(RobotMap.JOYSTICK_PORT);
     public Joystick joystick1 = new Joystick(RobotMap.JOY_1_PORT);
 	private JoystickButton buttonA = new JoystickButton(stick, RobotMap.BUTTON_A);
-    private JoystickButton buttonB = new JoystickButton(stick, RobotMap.BUTTON_B);
+    @SuppressWarnings("unused")
+	private JoystickButton buttonB = new JoystickButton(stick, RobotMap.BUTTON_B);
     @SuppressWarnings("unused")
 	private JoystickButton buttonX = new JoystickButton(stick, RobotMap.BUTTON_X);
     @SuppressWarnings("unused")

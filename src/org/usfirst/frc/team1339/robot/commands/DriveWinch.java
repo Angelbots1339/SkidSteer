@@ -1,8 +1,7 @@
 package org.usfirst.frc.team1339.robot.commands;
 
-import edu.wpi.first.wpilibj.Joystick;
 
-import org.usfirst.frc.team1339.robot.RobotMap;
+import edu.wpi.first.wpilibj.Joystick;
 /**
  *
  */
@@ -10,8 +9,7 @@ public class DriveWinch extends CommandBase {
 	private double leftTrigger;
     private double rightTrigger;
     private double control;
-    private Joystick stick;
-    public Joystick joystick1 = new Joystick(1);
+    public Joystick stick;
     public DriveWinch() {
         // Use requires() here to declare subsystem dependencies
     	requires(PIDElevator);
@@ -19,14 +17,14 @@ public class DriveWinch extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
+    	stick = oi.getJoy();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
         
-        rightTrigger = (joystick1.getRawAxis(1))*-1;
+        rightTrigger = (stick.getRawAxis(1))*-1;
         System.out.println(rightTrigger);
         control = rightTrigger-leftTrigger;
         System.out.println(control);
