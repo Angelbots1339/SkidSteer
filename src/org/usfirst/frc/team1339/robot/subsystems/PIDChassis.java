@@ -83,6 +83,11 @@ public class PIDChassis extends PIDSubsystem {
     	
     	SmartDashboard.putNumber("Left Speed", leftSpeed);
     	SmartDashboard.putNumber("Right Speed", rightSpeed);
+    	
+    	SmartDashboard.putNumber("Left Front Temp", leftFront.getTemp());
+    	SmartDashboard.putNumber("Left Back Temp", leftBack.getTemp());
+    	SmartDashboard.putNumber("Right Front Temp", rightFront.getTemp());
+    	SmartDashboard.putNumber("Right Back Temp", rightBack.getTemp());
     }
     
     public double getTalonTemp(int num){

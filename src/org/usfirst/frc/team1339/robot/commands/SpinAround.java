@@ -9,6 +9,8 @@ public class SpinAround extends CommandBase {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(PIDChassis);
+    	
+    	setTimeout(1);
     }
 
     // Called just before this Command runs the first time
@@ -17,11 +19,12 @@ public class SpinAround extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	PIDChassis.turnLeft();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
