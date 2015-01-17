@@ -4,6 +4,7 @@ package org.usfirst.frc.team1339.robot;
 
 
 import org.usfirst.frc.team1339.robot.commands.CommandBase;
+import org.usfirst.frc.team1339.robot.commands.ExtendLeftPlow;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -31,11 +32,11 @@ public class Robot extends IterativeRobot {
     	System.out.println("robotInit()\n");
 		oi = new OI();
 		CommandBase.init();
-		SmartDashboard.putNumber("ABC", 23);
+		SmartDashboard.putData("ExtendLeftPlow", new ExtendLeftPlow());
 		// initialize commands and the OI (created by Netbeans)
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
-    }
+    }	
 	
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();

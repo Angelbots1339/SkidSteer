@@ -1,20 +1,21 @@
 package org.usfirst.frc.team1339.robot.subsystems;
 
 import org.usfirst.frc.team1339.robot.RobotMap;
+import org.usfirst.frc.team1339.robot.commands.DriveWinch;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team1339.robot.RobotMap;
 /**
  *
  */
 public class PIDElevator extends PIDSubsystem {
 	
-    
+	public Joystick joystick1 = new Joystick(RobotMap.JOY_1_PORT);
 	private static final double Kp = 0.0;
     private static final double Ki = 0.0;
     private static final double Kd = 0.0;
@@ -49,15 +50,13 @@ public class PIDElevator extends PIDSubsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new DriveWinch());
     }
     
-    public void driveWithJoystick(double leftValue, double rightValue) {
-    	
-    }
     
     public void winchDrive(double speed){
     	
-		elevMotor.set(1);
+		elevMotor.set(speed);
     }	
     protected double returnPIDInput() {
         // Return your input value for the PID loop

@@ -2,11 +2,10 @@ package org.usfirst.frc.team1339.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.buttons.Trigger;
 
 import org.usfirst.frc.team1339.robot.RobotMap;
-import org.usfirst.frc.team1339.robot.commands.PrintPot;
 import org.usfirst.frc.team1339.robot.commands.DriveWinch;
+import org.usfirst.frc.team1339.robot.commands.PrintPot;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -41,24 +40,26 @@ public class OI{
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
     public Joystick stick = new Joystick(RobotMap.JOYSTICK_PORT);
+    public Joystick joystick1 = new Joystick(RobotMap.JOY_1_PORT);
 	private JoystickButton buttonA = new JoystickButton(stick, RobotMap.BUTTON_A);
-    @SuppressWarnings("unused")
-	private JoystickButton buttonB = new JoystickButton(stick, RobotMap.BUTTON_B);
+    private JoystickButton buttonB = new JoystickButton(stick, RobotMap.BUTTON_B);
     @SuppressWarnings("unused")
 	private JoystickButton buttonX = new JoystickButton(stick, RobotMap.BUTTON_X);
     @SuppressWarnings("unused")
 	private JoystickButton buttonY = new JoystickButton(stick, RobotMap.BUTTON_Y);
     
-    private JoystickButton rightTrigger = new JoystickButton(stick, RobotMap.RIGHT_TRIGGER);
-    
     public OI(){
     	buttonA.whenPressed(new PrintPot());
-    	rightTrigger.whenActive(new DriveWinch());
+    	
     }
 	
 	
     public Joystick getJoystick() {
         return stick;
+    }
+    
+    public Joystick getJoy() {
+        return joystick1;
     }
 }
 
