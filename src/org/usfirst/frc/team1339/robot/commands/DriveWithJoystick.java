@@ -33,7 +33,7 @@ public class DriveWithJoystick extends CommandBase {
 	protected void execute() {
         stick = oi.getJoystick();
         leftAxis = stick.getRawAxis(RobotMap.LEFT_Y_AXIS);
-        rightAxis = stick.getRawAxis(RobotMap.RIGHT_Y_AXIS);
+        rightAxis = stick.getRawAxis(RobotMap.RIGHT_X_AXIS);
         
         //Exponential Gain
         leftAxis = (leftAxis)*(leftAxis)*(leftAxis);
