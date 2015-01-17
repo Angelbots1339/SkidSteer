@@ -43,6 +43,18 @@ public class PIDChassis extends PIDSubsystem {
     	setDefaultCommand(new DriveWithJoystick());
     }
     
+    public void driveStraight(double speed){
+    	setLeftRight(speed, speed);
+    }
+    
+    public void turnLeft(){
+    	setLeftRight(0, 0.5);
+    }
+    
+    public void turnRight(){
+    	setLeftRight(0.5, 0);
+    }
+    
     public void driveWithJoystick(double leftValue, double rightValue) {
     	arcadeDrive(leftValue, rightValue);
     }
@@ -61,7 +73,7 @@ public class PIDChassis extends PIDSubsystem {
     	}
 
     	setLeftRight(left, right);
-    }	
+    }
     
     private void setLeftRight(double leftSpeed, double rightSpeed){
     	leftFront.set(leftSpeed);

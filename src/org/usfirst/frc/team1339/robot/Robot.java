@@ -4,7 +4,7 @@ package org.usfirst.frc.team1339.robot;
 
 
 import org.usfirst.frc.team1339.robot.commands.CommandBase;
-import org.usfirst.frc.team1339.robot.commands.ExtendLeftPlow;
+import org.usfirst.frc.team1339.robot.commands.*;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -32,6 +32,8 @@ public class Robot extends IterativeRobot {
     	System.out.println("robotInit()\n");
 		oi = new OI();
 		CommandBase.init();
+		SmartDashboard.putData("Drive Forward", new DriveForward(0.3, 3));
+		SmartDashboard.putData("Drive Backward", new DriveBackward(0.3, 3));
 		// initialize commands and the OI (created by Netbeans)
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
