@@ -2,9 +2,11 @@ package org.usfirst.frc.team1339.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.Trigger;
 
 import org.usfirst.frc.team1339.robot.RobotMap;
 import org.usfirst.frc.team1339.robot.commands.PrintPot;
+import org.usfirst.frc.team1339.robot.commands.DriveWinch;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -47,8 +49,11 @@ public class OI{
     @SuppressWarnings("unused")
 	private JoystickButton buttonY = new JoystickButton(stick, RobotMap.BUTTON_Y);
     
+    private JoystickButton rightTrigger = new JoystickButton(stick, RobotMap.RIGHT_TIGGER);
+    
     public OI(){
     	buttonA.whenPressed(new PrintPot());
+    	rightTrigger(new DriveWinch());
     }
 	
 	

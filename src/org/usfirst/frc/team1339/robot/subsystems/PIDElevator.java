@@ -34,7 +34,7 @@ public class PIDElevator extends PIDSubsystem {
     	elevMotor = new CANTalon(RobotMap.ELEV_TALON);
     	ai = new AnalogInput(RobotMap.POTENTIOMETER_PORT);
     	pot = new AnalogPotentiometer(ai, 3600);
-        stick = new Joystick; 
+         
     }
      
     
@@ -56,8 +56,8 @@ public class PIDElevator extends PIDSubsystem {
     }
     
     public void winchDrive(double speed){
-    		
-		elevMotor.set(stick.getRawAxis(RobotMap.LEFT_Y_AXIS));
+    	
+		elevMotor.set(1);
     }	
     protected double returnPIDInput() {
         // Return your input value for the PID loop
