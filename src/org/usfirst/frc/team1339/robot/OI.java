@@ -49,11 +49,11 @@ public class OI{
     @SuppressWarnings("unused")
 	private JoystickButton buttonY = new JoystickButton(stick, RobotMap.BUTTON_Y);
     
-    private JoystickButton rightTrigger = new JoystickButton(stick, RobotMap.RIGHT_TIGGER);
+    private JoystickButton rightTrigger = new JoystickButton(stick, RobotMap.RIGHT_TRIGGER);
     
     public OI(){
     	buttonA.whenPressed(new PrintPot());
-    	rightTrigger(new DriveWinch());
+    	rightTrigger.whenActive(new DriveWinch());
     }
 	
 	
