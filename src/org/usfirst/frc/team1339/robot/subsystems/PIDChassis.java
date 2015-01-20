@@ -19,7 +19,7 @@ public class PIDChassis extends PIDSubsystem {
     private static final double Ki = 0.0;
     private static final double Kd = 0.0;
     
-    CANTalon leftFront, leftBack, rightFront, rightBack;
+    CANTalon leftFront, leftTop, leftBack, rightFront, rightTop, rightBack;
 
     // Initialize your subsystem here
     public PIDChassis() {
@@ -31,8 +31,10 @@ public class PIDChassis extends PIDSubsystem {
        
         
         leftFront = new CANTalon(RobotMap.LEFT_FRONT_SRX);
+        leftTop = new CANTalon(RobotMap.LEFT_TOP_SRX);
         leftBack = new CANTalon(RobotMap.LEFT_BACK_SRX);
         rightFront = new CANTalon(RobotMap.RIGHT_FRONT_SRX);
+        rightTop = new CANTalon(RobotMap.RIGHT_TOP_SRX);
         rightBack = new CANTalon(RobotMap.RIGHT_BACK_SRX);
 
     }
@@ -77,34 +79,21 @@ public class PIDChassis extends PIDSubsystem {
     
     private void setLeftRight(double leftSpeed, double rightSpeed){
     	leftFront.set(leftSpeed);
-    	leftBack.set(leftSpeed * -1);
+    	leftTop.set(leftSpeed);
+    	leftBack.set(leftSpeed);
     	rightFront.set(rightSpeed);
-    	rightBack.set(rightSpeed * -1);
+    	rightTop.set(rightSpeed);
+    	rightBack.set(rightSpeed);
     	
     	SmartDashboard.putNumber("Left Speed", leftSpeed);
     	SmartDashboard.putNumber("Right Speed", rightSpeed);
     	
     	SmartDashboard.putNumber("Left Front Temp", leftFront.getTemp());
+    	SmartDashboard.putNumber("Left Top Temp", leftTop.getTemp());
     	SmartDashboard.putNumber("Left Back Temp", leftBack.getTemp());
     	SmartDashboard.putNumber("Right Front Temp", rightFront.getTemp());
+    	SmartDashboard.putNumber("Right Top Temp", rightTop.getTemp());
     	SmartDashboard.putNumber("Right Back Temp", rightBack.getTemp());
-    }
-    
-    public double getTalonTemp(int num){
-    	double temp = 0;
-    	if(num == 0){
-    		temp = leftFront.getTemp();
-    	}
-    	else if(num == 1){
-    		temp = leftBack.getTemp();
-    	}
-    	else if(num == 2){
-    		temp = rightFront.getTemp();
-    	}
-    	else if(num == 3){
-    		temp = rightBack.getTemp();
-    	}
-		return temp;
     }
     
     protected double returnPIDInput() {

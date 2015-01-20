@@ -36,13 +36,18 @@ public class RobotMap {
 	public static int LEFT_TRIGGER = 2;
 	public static int JOY_Y_AXIS = 1;
 	public static int JOY_X_AXIS = 0;
+	
 	//CAN ID's
 	public static int LEFT_FRONT_SRX = 0;
-	public static int LEFT_BACK_SRX = 1;
-	public static int RIGHT_FRONT_SRX = 2;
-	public static int RIGHT_BACK_SRX = 3;
-	public static int ELEV_TALON = 4;
-	public static int ELEV_TALON_2 = 5;
+	public static int LEFT_TOP_SRX = 1;
+	public static int LEFT_BACK_SRX = 2;
+	public static int RIGHT_FRONT_SRX = 3;
+	public static int RIGHT_TOP_SRX = 4;
+	public static int RIGHT_BACK_SRX = 5;
+	public static int ELEV_TALON = 6;
+	public static int ELEV_TALON_2 = 7;
+	public static int LEFT_WHEEL = 8;
+	public static int RIGHT_WHEEL = 9;
 	
 	//Analog Ports
 	public static int POTENTIOMETER_PORT = 0;
