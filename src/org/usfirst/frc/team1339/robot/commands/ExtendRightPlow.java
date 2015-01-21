@@ -1,15 +1,15 @@
 package org.usfirst.frc.team1339.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 /**
  *
  */
-public class ExtendRightPlow extends Command {
+public class ExtendRightPlow extends CommandBase {
 
     public ExtendRightPlow() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(BoxPlow);
+    	setTimeout(1);
     }
 
     // Called just before this Command runs the first time
@@ -18,11 +18,12 @@ public class ExtendRightPlow extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	BoxPlow.extendRight();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true

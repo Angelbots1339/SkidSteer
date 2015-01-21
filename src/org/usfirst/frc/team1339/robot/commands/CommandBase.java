@@ -26,6 +26,7 @@ public abstract class CommandBase extends Command {
     public static PIDChassis PIDChassis = new PIDChassis();
     public static PIDElevator PIDElevator = new PIDElevator();
     public static ElToro ElTotoro = new ElToro();
+    public static BoxPlow BoxPlow = new BoxPlow();
     
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

@@ -51,4 +51,10 @@ public class RobotMap {
 	
 	//Analog Ports
 	public static int POTENTIOMETER_PORT = 0;
+	
+	//Solenoids
+	public static int LEFT_OUT_SOLENOID = 0;
+	public static int LEFI_IN_SOLENOID = 1;
+	public static int RIGHT_OUT_SOLENOID = 2;
+	public static int RIGHT_IN_SOLENOID = 3;
 }

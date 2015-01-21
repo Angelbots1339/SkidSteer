@@ -3,13 +3,12 @@ package org.usfirst.frc.team1339.robot.commands;
 /**
  *
  */
-public class ExtendLeftPlow extends CommandBase {
+public class Chill extends CommandBase {
 
-    public ExtendLeftPlow() {
+    public Chill() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(BoxPlow);
-    	setTimeout(1);
+    	requires(ElTotoro);
     }
 
     // Called just before this Command runs the first time
@@ -18,12 +17,14 @@ public class ExtendLeftPlow extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	BoxPlow.extendLeft();
+    	//Absolutely nothing bra
+    	//www.youtube.com/watch?v=fLexgOxsZu0
+    	ElTotoro.chill();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true

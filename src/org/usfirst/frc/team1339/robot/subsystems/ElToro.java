@@ -1,6 +1,7 @@
 package org.usfirst.frc.team1339.robot.subsystems;
 
 import org.usfirst.frc.team1339.robot.RobotMap;
+import org.usfirst.frc.team1339.robot.commands.Chill;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -23,6 +24,7 @@ public class ElToro extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new Chill());
     }
     
     public void suck(double speed){
@@ -38,6 +40,11 @@ public class ElToro extends Subsystem {
     public void spit(double speed){
     	leftWheel.set((speed)*-1);
     	rightWheel.set(speed);
+    }
+    
+    public void chill(){
+    	leftWheel.set(0);
+    	rightWheel.set(0);
     }
 }
 
