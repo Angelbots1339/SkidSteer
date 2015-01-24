@@ -34,6 +34,7 @@ public class Robot extends IterativeRobot {
 		CommandBase.init();
 		SmartDashboard.putData("Drive Forward", new DriveForward(0.3, 3));
 		SmartDashboard.putData("Drive Backward", new DriveBackward(0.3, 3));
+		SmartDashboard.putData("Suck", new Suck());
 		// initialize commands and the OI (created by Netbeans)
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();

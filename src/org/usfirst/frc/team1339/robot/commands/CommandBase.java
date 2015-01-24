@@ -27,6 +27,8 @@ public abstract class CommandBase extends Command {
     public static PIDElevator PIDElevator = new PIDElevator();
     public static ElToro ElTotoro = new ElToro();
     public static BoxPlow BoxPlow = new BoxPlow();
+    public static PrintPot PrintPot = new PrintPot();
+    
     
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -41,6 +43,7 @@ public abstract class CommandBase extends Command {
         // This is optional
         //SmartDashboard.putData(exampleSubsystem);
         SmartDashboard.putData(PIDChassis);
+        SmartDashboard.putData(PIDElevator);
     }
 
     public CommandBase(String name) {

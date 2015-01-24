@@ -6,6 +6,7 @@ import org.usfirst.frc.team1339.robot.commands.DriveWinch;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
@@ -19,10 +20,12 @@ public class PIDElevator extends PIDSubsystem {
     private static final double Ki = 0.0;
     private static final double Kd = 0.0;
     
-	CANTalon elevMotor;
-	AnalogInput ai;
+	private CANTalon elevMotor;
+	private AnalogInput ai;
 	static AnalogPotentiometer pot;
-
+	
+	public DigitalInput button;
+	
     // Initialize your subsystem here
     public PIDElevator() {
     	super("PIDElevator", Ki, Kp, Kd);
@@ -34,7 +37,8 @@ public class PIDElevator extends PIDSubsystem {
     	elevMotor = new CANTalon(RobotMap.ELEV_TALON);
     	ai = new AnalogInput(RobotMap.POTENTIOMETER_PORT);
     	pot = new AnalogPotentiometer(ai, 3600);
-         
+    	
+        button = new DigitalInput(0); 
     }
      
     
@@ -54,9 +58,14 @@ public class PIDElevator extends PIDSubsystem {
     
     
     public void winchDrive(double speed){
-    	
-		elevMotor.set(speed);
-    }	
+    		elevMotor.set(speed);	
+		
+    }
+    
+    public boolean getButton(){
+    	return button.get();
+    }
+    
     protected double returnPIDInput() {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:

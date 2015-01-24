@@ -23,6 +23,7 @@ public class RobotMap {
 	public static int BUTTON_B = 2;
 	public static int BUTTON_X = 3;
 	public static int BUTTON_Y = 4;
+	public static int TRIGGER = 1;
 	
 	
 	
@@ -42,12 +43,12 @@ public class RobotMap {
 	public static int LEFT_TOP_SRX = 1;
 	public static int LEFT_BACK_SRX = 2;
 	public static int RIGHT_FRONT_SRX = 3;
-	public static int RIGHT_TOP_SRX = 4;
-	public static int RIGHT_BACK_SRX = 5;
+	public static int RIGHT_TOP_SRX = 7;//was 4
+	public static int RIGHT_BACK_SRX = 6;//was 5
 	public static int ELEV_TALON = 6;
 	public static int ELEV_TALON_2 = 7;
-	public static int LEFT_WHEEL = 8;
-	public static int RIGHT_WHEEL = 9;
+	public static int LEFT_WHEEL = 4; // was 8
+	public static int RIGHT_WHEEL = 5; // was 9
 	
 	//Analog Ports
 	public static int POTENTIOMETER_PORT = 0;

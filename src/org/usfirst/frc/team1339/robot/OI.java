@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team1339.robot.RobotMap;
 import org.usfirst.frc.team1339.robot.commands.PrintPot;
-
+import org.usfirst.frc.team1339.robot.commands.Suck;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -47,15 +47,15 @@ public class OI{
 	private JoystickButton buttonX = new JoystickButton(stick, RobotMap.BUTTON_X);
     @SuppressWarnings("unused")
 	private JoystickButton buttonY = new JoystickButton(stick, RobotMap.BUTTON_Y);
-    
+    private JoystickButton trigger = new JoystickButton(joystick1, RobotMap.TRIGGER);
     public OI(){
     	buttonA.whenPressed(new PrintPot());
-    	
+    	trigger.whenPressed(new Suck());
     }
 	
 	
     public Joystick getJoystick() {
-        return stick;
+        return stick;	
     }
     
     public Joystick getJoy() {
