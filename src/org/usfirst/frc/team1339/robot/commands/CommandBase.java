@@ -27,7 +27,7 @@ public abstract class CommandBase extends Command {
     public static PIDElevator PIDElevator = new PIDElevator();
     public static ElToro ElTotoro = new ElToro();
     public static BoxPlow BoxPlow = new BoxPlow();
-    public static PrintPot PrintPot = new PrintPot();
+    //public static PrintPot PrintPot = new PrintPot();
     
     
     public static void init() {

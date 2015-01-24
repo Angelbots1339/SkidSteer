@@ -5,6 +5,10 @@ package org.usfirst.frc.team1339.robot.subsystems;
 import org.usfirst.frc.team1339.robot.RobotMap;
 import org.usfirst.frc.team1339.robot.commands.DriveWithJoystick;
 
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
+import edu.wpi.first.wpilibj.CounterBase;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -13,14 +17,16 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class PIDChassis extends PIDSubsystem {
-	
+
+public class PIDChassis extends PIDSubsystem {	
 	private static final double Kp = 0.0;
     private static final double Ki = 0.0;
     private static final double Kd = 0.0;
-    
+    public Encoder enc = new Encoder (2, 3, false, CounterBase.EncodingType.k4X);
+    private AnalogInput ai;
+    private AnalogPotentiometer pot;
     CANTalon leftFront, leftTop, leftBack, rightFront, rightTop, rightBack;
-
+   
     // Initialize your subsystem here
     public PIDChassis() {
         super("PIDChassis", Kp, Ki, Kd);
@@ -37,6 +43,28 @@ public class PIDChassis extends PIDSubsystem {
         rightTop = new CANTalon(RobotMap.RIGHT_TOP_SRX);
         rightBack = new CANTalon(RobotMap.RIGHT_BACK_SRX);
 
+        
+        int count = enc.get();
+        double raw = enc.getRaw();
+        double distance = enc.getDistance();
+        double period = enc.getPeriod();
+        double rate = enc.getRate();
+        //enc.setMaxPeriod(.1);
+        //enc.setMinRate(20);
+        enc.setDistancePerPulse(10);
+        
+        ai = new AnalogInput(RobotMap.POTENTIOMETER_PORT);
+        pot = new AnalogPotentiometer(ai,280);
+        //enc.setReverseDirection(true);   
+        //enc.getDistance();
+        //enc.getRaw();
+        
+        
+        /*
+      
+        
+        
+        */
     }
     
     public void initDefaultCommand() {
@@ -56,6 +84,8 @@ public class PIDChassis extends PIDSubsystem {
     public void turnRight(){
     	setLeftRight(0.5, 0);
     }
+    
+    
     
     public void driveWithJoystick(double leftValue, double rightValue) {
     	arcadeDrive(leftValue, rightValue);
@@ -94,6 +124,8 @@ public class PIDChassis extends PIDSubsystem {
     	SmartDashboard.putNumber("Right Front Temp", rightFront.getTemp());
     	SmartDashboard.putNumber("Right Top Temp", rightTop.getTemp());
     	SmartDashboard.putNumber("Right Back Temp", rightBack.getTemp());
+    	SmartDashboard.putNumber("Encoder Distance", enc.getDistance() );
+    	SmartDashboard.putNumber("PotTest", pot.get());
     }
     
     protected double returnPIDInput() {
@@ -106,5 +138,13 @@ public class PIDChassis extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
+   
     }
+    
 }
+
+
+
+   
+
+   

@@ -21,7 +21,7 @@ public class PrintPot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println(Math.round(PIDElevator.getPot()));
+    	//System.out.println(Math.round(PIDElevator.getPot()));
     	fin = true;
     }
 

@@ -21,8 +21,8 @@ public class PIDElevator extends PIDSubsystem {
     private static final double Kd = 0.0;
     
 	private CANTalon elevMotor;
-	private AnalogInput ai;
-	static AnalogPotentiometer pot;
+	
+	
 	
 	public DigitalInput button;
 	
@@ -35,8 +35,8 @@ public class PIDElevator extends PIDSubsystem {
         //                  to
         // enable() - Enables the PID controller.
     	elevMotor = new CANTalon(RobotMap.ELEV_TALON);
-    	ai = new AnalogInput(RobotMap.POTENTIOMETER_PORT);
-    	pot = new AnalogPotentiometer(ai, 3600);
+    	
+    	
     	
         button = new DigitalInput(0); 
     }
@@ -46,9 +46,10 @@ public class PIDElevator extends PIDSubsystem {
     	setSetpoint(setpoint);
     }
     
-    public static double getPot(){
-    	return pot.get();
-    }
+    //public  double getPot(){
+    //	return pot.get();
+    //}
+    //SmartDashboard.putNumber("PotResistance" pot.getvoltage);
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -70,7 +71,7 @@ public class PIDElevator extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-    	return pot.pidGet();
+    	return 0;//pot.pidGet();
     }
     
     protected void usePIDOutput(double output) {

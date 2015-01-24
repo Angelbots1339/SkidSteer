@@ -3,9 +3,12 @@ package org.usfirst.frc.team1339.robot;
 
 
 
-import org.usfirst.frc.team1339.robot.commands.CommandBase;
 import org.usfirst.frc.team1339.robot.commands.*;
+import org.usfirst.frc.team1339.robot.subsystems.PIDChassis;
+import org.usfirst.frc.team1339.robot.subsystems.PIDElevator;
 
+import edu.wpi.first.wpilibj.CounterBase;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -21,7 +24,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 	public static OI oi;
-
+	
     Command autonomousCommand;
 
     /**
@@ -35,6 +38,13 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Drive Forward", new DriveForward(0.3, 3));
 		SmartDashboard.putData("Drive Backward", new DriveBackward(0.3, 3));
 		SmartDashboard.putData("Suck", new Suck());
+	
+        
+		
+		//PIDElevator myPid = new PIDElevator();
+		//PIDChassis myChassis = new PIDChassis();
+		//SmartDashboard.putNumber("PotVoltage", myPid.getPot());
+		
 		// initialize commands and the OI (created by Netbeans)
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
