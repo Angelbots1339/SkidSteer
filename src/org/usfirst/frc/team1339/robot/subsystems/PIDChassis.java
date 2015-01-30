@@ -92,19 +92,42 @@ public class PIDChassis extends PIDSubsystem {
     }
     
     public void arcadeDrive(double throttle, double turn){
-    	double left = 0;
-    	double right = 0;
+    	double left = throttle;
+    	double right = throttle;
     	
+    	
+    	double turningThrottleScale = 0.75;
+        
+        // If there's no throttle, we still want to be able to turn
+        if (java.lang.Math.abs(throttle) > 0.1) {
+            turningThrottleScale = java.lang.Math.abs(throttle);
+            
+        }
+        // Check the turning deadband, if we're past the deadband apply the turn
+        // Otherwise we ignore the turn joystick
+        if (turn > 0.04 || turn < -0.04) {
+            // scale the turning based on the throttle
+            left -= turn * turningThrottleScale;  
+            right += turn * turningThrottleScale; 
+        }
+    	
+    	/*
+    	turn = turn/2;
+    	throttle = throttle*throttle*throttle;
     	if(throttle > 0){
-    		left = throttle + turn;
+    		left = -throttle + turn;
     		right = throttle - turn;
     	}
-    	else if(throttle < 0){
-    		left = throttle - turn;
+    	else if(throttle < -0){
+    		left = -throttle - turn;
     		right = throttle + turn;
     	}
-
-    	setLeftRight(left, right);
+    	else{
+    		left = 0+turn;
+    		right = 0+turn;		
+    	}
+    		*/
+    	setLeftRight(left*-1, right);
     }
     
     private void setLeftRight(double leftSpeed, double rightSpeed){
